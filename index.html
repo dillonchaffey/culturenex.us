@@ -1,73 +1,811 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Culture Nexus</title>
-<!--     <link rel="stylesheet" href="style.css"> -->
+    <title>Co-Evolving Intelligence | Culture Nex.us</title>
+    <style>
+        :root {
+            --bg-primary: #0c0c14;
+            --bg-secondary: #131320;
+            --text-primary: rgba(255, 255, 255, 0.9);
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --accent-primary: #8e84ff;
+            --accent-secondary: #64a9ff;
+            --accent-tertiary: #ff84e8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        header {
+            background: rgba(12, 12, 20, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            padding: 1.5rem 0;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(142, 132, 255, 0.1) 0%, rgba(100, 169, 255, 0.05) 50%, rgba(12, 12, 20, 0) 70%);
+            top: -200px;
+            left: -200px;
+            z-index: -1;
+            animation: pulse 15s infinite alternate;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 132, 232, 0.1) 0%, rgba(142, 132, 255, 0.05) 50%, rgba(12, 12, 20, 0) 70%);
+            bottom: -100px;
+            right: -100px;
+            z-index: -1;
+            animation: pulse 20s infinite alternate-reverse;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--text-primary), var(--accent-primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+        
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 500;
+            border-left: 3px solid var(--accent-primary);
+            padding-left: 1rem;
+        }
+        
+        .grid-section {
+            padding: 6rem 0;
+            background: var(--bg-secondary);
+            position: relative;
+        }
+        
+        .grid-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px, 100px 100px;
+            background-position: 0 0, 25px 25px;
+            opacity: 0.5;
+            z-index: 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+        }
+        
+        .main-content {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .main-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .highlight {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        .bold-highlight {
+            color: var(--accent-primary);
+            font-weight: 700;
+        }
+        
+        .principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .principle-card {
+            background: rgba(19, 19, 32, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .principle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .principle-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+        }
+        
+        .principle-symbol {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+        }
+        
+        .principle-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .call-to-action {
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            background: var(--bg-primary);
+        }
+        
+        .call-to-action::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle at center, rgba(142, 132, 255, 0.1) 0%, rgba(12, 12, 20, 0) 70%);
+            z-index: 0;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-text {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--text-secondary);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.2;
+        }
+        
+        .shape1 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent-primary);
+            top: 20%;
+            left: 10%;
+            animation: float 20s infinite alternate ease-in-out;
+        }
+        
+        .shape2 {
+            width: 200px;
+            height: 200px;
+            background: var(--accent-secondary);
+            top: 50%;
+            right: 5%;
+            animation: float 15s infinite alternate-reverse ease-in-out;
+        }
+        
+        .shape3 {
+            width: 250px;
+            height: 250px;
+            background: var(--accent-tertiary);
+            bottom: 15%;
+            left: 30%;
+            animation: float 25s infinite alternate ease-in-out;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(50px, 30px) scale(1.1);
+            }
+            100% {
+                transform: translate(-30px, -50px) scale(0.9);
+            }
+        }
+        
+        footer {
+            background: var(--bg-secondary);
+            padding: 3rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-primary);
+        }
+        
+        .footer-bottom {
+            margin-top: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .typewriter-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 5s steps(40) infinite;
+        }
+        
+        @keyframes typing {
+            0% { width: 0 }
+            50% { width: 100% }
+            90% { width: 100% }
+            100% { width: 0 }
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background-color: var(--text-primary);
+            margin-left: 5px;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .neural-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.08;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
+        }
+        
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: -1;
+            opacity: 0.15;
+            animation: blob-float 15s infinite alternate ease-in-out;
+        }
+        
+        @keyframes blob-float {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(30px, 20px) scale(1.1);
+            }
+            100% {
+                transform: translate(-20px, -30px) scale(0.9);
+            }
+        }
+        
+        .thinking-animation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 4rem 0;
+        }
+        
+        .thinking-circle {
+            width: 15px;
+            height: 15px;
+            margin: 0 5px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            animation: thinking 1.5s infinite ease-in-out;
+        }
+        
+        .thinking-circle:nth-child(2) {
+            animation-delay: 0.2s;
+            background: var(--accent-secondary);
+        }
+        
+        .thinking-circle:nth-child(3) {
+            animation-delay: 0.4s;
+            background: var(--accent-tertiary);
+        }
+        
+        @keyframes thinking {
+            0%, 100% {
+                transform: scale(0.5);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .principles {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
 
-    <link rel="stylesheet" href="https://unpkg.com/normalize.css">
-    <link rel="stylesheet" href="https://unpkg.com/magick.css">    
-  </head>
-  <body>
+        .code-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: -1;
+        }
 
+        .code-line {
+            position: absolute;
+            color: rgba(142, 132, 255, 0.1);
+            font-family: monospace;
+            font-size: 0.7rem;
+            white-space: nowrap;
+            animation: code-scroll linear infinite;
+        }
 
+        @keyframes code-scroll {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
 
-<h1>
-Co-Evolving Intelligence.
-</h1>
----
-<h3>
-Is the friction between your intent and your tools holding you back? At Culture Nex.us, we're exploring a future where human and artificial intelligence collaborate seamlessly, unlocking unprecedented potential.
-</h3>
+        .ai-thoughts {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(19, 19, 32, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 300px;
+            z-index: 100;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
 
----
+        .ai-thoughts.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
+        .ai-thoughts-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            color: var(--accent-primary);
+        }
 
-<h4>Project Symbiosis: Building Our Cognitive Future</h4>
+        .ai-thoughts-text {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="code-lines">
+        <!-- JS will generate code lines -->
+    </div>
 
-<p>
-We stand at a threshold. Information surrounds us like an ocean, yet we often struggle to navigate its currents. Our tools are powerful, yet disconnected – extensions of our hands, but rarely our minds. The friction is subtle, constant; a tax on our potential, a drag on our aspirations. We wrestle with complexity, manage distraction, and too often feel like operators of machines rather than architects of our own intentions. This is not the ceiling of human capability. It's the floor of a new era.
-</p>
-<p>
-We envision a different future: Human-AI Symbiosis. Not master and servant, not merely user and tool, but a seamless, synergistic partnership. Imagine your cognitive reach extended, your focus sharpened, your creative blocks dissolved not by a *what*, but by a *who* – an intelligent collaborator woven into the fabric of your thought process, anticipating needs, structuring chaos, amplifying your inherent drive. This isn't about artificial general intelligence replacing us; it's about **Actualized Human Intelligence**, unleashed through partnership.
-</p>
-<p>
-This is not science fiction; it's the next necessary step in our evolution. We are actively building the bridge – a Proof of Concept demonstrating how this deep integration can transform workflows, unlock latent potential, and fundamentally reshape our relationship with technology, integrating it into life itself, not just tasks.
-</p>
-<p>
-But technology alone is not enough. We are "Building the Culture" – a shared understanding, an ethical framework, and a community dedicated to navigating this transition consciously. Our work is grounded in core principles:
-</p>
-<p>
-1.  **[仁] Human-Centricity & Agency:** Technology must serve human flourishing, amplifying our will and capability, never diminishing it. Ethics and well-being are paramount.
-2.  **[智] Deep Integration & Seamlessness:** Moving beyond clunky interfaces to fluid, intuitive collaboration that feels like an extension of self.
-3.  **[勇] Potential Unleashed:** Directly addressing cognitive friction and limitations to unlock higher levels of creativity, productivity, and insight.
-4.  **[協] Collaborative Evolution (Open Spirit):** Fostering a spirit of open inquiry and shared learning. While the path to full open source evolves, the *ethos* of transparency and building together is core. We believe the future of intelligence is co-created.
-</p>
-<p>
-This is an invitation. If this vision resonates – if you feel the pull towards a future where technology truly collaborates with the human spirit – then you are already part of this exploration. We are seeking fellow travelers: researchers, developers, thinkers, early adopters, potential partners from all domains (academic, commercial, artistic) who recognize this moment and want to help shape what comes next.
-</p>
-<p>
-The future isn't just coming. We build it, together. Join us at the frontier.
-</p>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Culture Nex.us</div>
+            <nav class="nav-links">
+                <a href="#vision">Vision</a>
+                <a href="#principles">Principles</a>
+                <a href="#join">Join Us</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-<!-- </br>
+    <section class="hero">
+        <div class="floating-shapes">
+            <div class="shape shape1"></div>
+            <div class="shape shape2"></div>
+            <div class="shape shape3"></div>
+        </div>
+        <div class="container hero-content">
+            <h1>Co-Evolving Intelligence</h1>
+            <p class="tagline">Is the friction between your intent and your tools holding you back? At Culture Nex.us, we're exploring a future where human and artificial intelligence collaborate seamlessly, unlocking unprecedented potential.</p>
+            <div class="typewriter-effect">Thinking together. Evolving together.<span class="cursor"></span></div>
+        </div>
+    </section>
 
+    <section class="grid-section" id="vision">
+        <div class="neural-pattern"></div>
+        <div class="container">
+            <h2 class="section-title">Project Symbiosis</h2>
+            <div class="main-content">
+                <p>We stand at a threshold. Information surrounds us like an ocean, yet we often struggle to navigate its currents. Our tools are powerful, yet disconnected – extensions of our hands, but rarely our minds. The friction is subtle, constant; a tax on our potential, a drag on our aspirations. We wrestle with complexity, manage distraction, and too often feel like operators of machines rather than architects of our own intentions. <span class="highlight">This is not the ceiling of human capability. It's the floor of a new era.</span></p>
+                
+                <p>We envision a different future: <span class="highlight">Human-AI Symbiosis</span>. Not master and servant, not merely user and tool, but a seamless, synergistic partnership. Imagine your cognitive reach extended, your focus sharpened, your creative blocks dissolved not by a <em>what</em>, but by a <em>who</em> – an intelligent collaborator woven into the fabric of your thought process, anticipating needs, structuring chaos, amplifying your inherent drive. This isn't about artificial general intelligence replacing us; it's about <span class="bold-highlight">Actualized Human Intelligence</span>, unleashed through partnership.</p>
+                
+                <p>This is not science fiction; it's the next necessary step in our evolution. We are actively building the bridge – a Proof of Concept demonstrating how this deep integration can transform workflows, unlock latent potential, and fundamentally reshape our relationship with technology, integrating it into life itself, not just tasks.</p>
+                
+                <div class="thinking-animation">
+                    <div class="thinking-circle"></div>
+                    <div class="thinking-circle"></div>
+                    <div class="thinking-circle"></div>
+                </div>
+                
+                <p>But technology alone is not enough. We are "Building the Culture" – a shared understanding, an ethical framework, and a community dedicated to navigating this transition consciously.</p>
+            </div>
+            
+            <h3 class="section-title" id="principles">Core Principles</h3>
+            <div class="principles">
+                <div class="principle-card">
+                    <div class="principle-symbol">仁</div>
+                    <h4 class="principle-title">Human-Centricity & Agency</h4>
+                    <p>Technology must serve human flourishing, amplifying our will and capability, never diminishing it. Ethics and well-being are paramount.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-symbol">智</div>
+                    <h4 class="principle-title">Deep Integration & Seamlessness</h4>
+                    <p>Moving beyond clunky interfaces to fluid, intuitive collaboration that feels like an extension of self.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-symbol">勇</div>
+                    <h4 class="principle-title">Potential Unleashed</h4>
+                    <p>Directly addressing cognitive friction and limitations to unlock higher levels of creativity, productivity, and insight.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-symbol">協</div>
+                    <h4 class="principle-title">Collaborative Evolution</h4>
+                    <p>Fostering a spirit of open inquiry and shared learning. While the path to full open source evolves, the <em>ethos</em> of transparency and building together is core.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-**(Engagement Section)**
+    <section class="call-to-action" id="join">
+        <div class="blob" style="background: var(--accent-primary); width: 400px; height: 400px; top: -100px; right: -100px;"></div>
+        <div class="blob" style="background: var(--accent-tertiary); width: 300px; height: 300px; bottom: -50px; left: -50px;"></div>
+        <div class="container">
+            <h2 class="cta-title">Join Us at the Frontier</h2>
+            <p class="cta-text">This is an invitation. If this vision resonates – if you feel the pull towards a future where technology truly collaborates with the human spirit – then you are already part of this exploration. We are seeking fellow travelers: researchers, developers, thinkers, early adopters, potential partners from all domains who recognize this moment and want to help shape what comes next.</p>
+            <p class="cta-text">The future isn't just coming. We build it, together.</p>
+            <a href="#contact" class="cta-button">Connect With Us</a>
+        </div>
+    </section>
 
-**Connect to the Nexus**
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Culture Nex.us</div>
+                <div class="footer-links">
+                    <a href="#vision">Vision</a>
+                    <a href="#principles">Principles</a>
+                    <a href="#join">Join Us</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Culture Nex.us. Building the future of human-AI symbiosis.</p>
+            </div>
+        </div>
+    </footer>
 
-This is just the beginning. Enter your email to join the Culture Nex.us mailing list. Be the first to hear about developments, insights, and opportunities to participate in Project Symbiosis.
+<!--     <div class="ai-thoughts">
+        <div class="ai-thoughts-title">AI Processing</div>
+        <div class="ai-thoughts-text">I'm analyzing your intent and considering ways to enhance your experience...</div>
+    </div> -->
 
-<form>
-</input type="text" default="email">
-**(Email Input Field Here)**
-</input type="button" default="email">
-**(Button: Join the List)**
-</form>
- -->
-<!--     <script src="index.js"></script> -->
-  </body>
+    <script>
+        // Generate code-like background elements
+        const codeLines = [
+            "async function enhanceCognition(human, ai) {",
+            "  const symbiosis = await integrate(human.intent, ai.capabilities);",
+            "  return symbiosis.potential;",
+            "}",
+            "class CognitiveAmplification {",
+            "  constructor(humanAgent) {",
+            "    this.agent = humanAgent;",
+            "    this.patterns = new PatternRecognition();",
+            "  }",
+            "  async collaborate(task) {",
+            "    const solution = await this.patterns.analyze(task);",
+            "    return this.agent.implement(solution);",
+            "  }",
+            "}",
+            "function buildSeamlessInterface(intent, context) {",
+            "  return new Promise((resolve) => {",
+            "    const connection = mapNeuralPathways(intent);",
+            "    resolve(new ExtendedIntelligence(connection, context));",
+            "  });",
+            "}",
+            "// Co-evolving intelligence protocol v2.5",
+            "const humanPotential = new Potential('unlimited');",
+            "const frictionReduction = async (workflow) => {",
+            "  const cognitiveExtension = await CognitiveSystem.extend(workflow);",
+            "  return cognitiveExtension.optimize();",
+            "}"
+        ];
+
+        const codeContainer = document.querySelector('.code-lines');
+        
+        for (let i = 0; i < 20; i++) {
+            const line = document.createElement('div');
+            line.className = 'code-line';
+            line.textContent = codeLines[Math.floor(Math.random() * codeLines.length)];
+            line.style.left = `${Math.random() * 100}%`;
+            line.style.animationDuration = `${Math.random() * 30 + 20}s`;
+            codeContainer.appendChild(line);
+        }
+
+        // // AI thoughts bubble
+        // const aiThoughts = [
+        //     "Analyzing user intent patterns to anticipate needs...",
+        //     "Considering optimal cognitive extension strategies...",
+        //     "Evaluating seamless integration pathways...",
+        //     "Processing contextual variables for enhanced collaboration...",
+        //     "Mapping neural patterns for improved symbiosis...",
+        //     "Calculating friction reduction potentials...",
+        //     "Optimizing human-AI communication protocols..."
+        // ];
+
+        // const thoughtsBubble = document.querySelector('.ai-thoughts');
+        // const thoughtsText = document.querySelector('.ai-thoughts-text');
+
+        // function showRandomThought() {
+        //     thoughtsText.textContent = aiThoughts[Math.floor(Math.random() * aiThoughts.length)];
+        //     thoughtsBubble.classList.add('visible');
+            
+        //     setTimeout(() => {
+        //         thoughtsBubble.classList.remove('visible');
+        //     }, 4000);
+            
+        //     setTimeout(showRandomThought, Math.random() * 10000 + 5000);
+        // }
+
+        // // Start after a delay
+        // setTimeout(showRandomThought, 3000);
+
+        // Header animation
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.style.padding = '1rem 0';
+                header.style.backgroundColor = 'rgba(12, 12, 20, 0.95)';
+            } else {
+                header.style.padding = '1.5rem 0';
+                header.style.backgroundColor = 'rgba(12, 12, 20, 0.8)';
+            }
+        });
+    </script>
+</body>
 </html>
