@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Co-Evolving Intelligence | Culture Nex.us</title>
+    <title>Co-Evolving Intelligence | CultureNex.us</title>
     <style>
         :root {
             --bg-primary: #0c0c14;
@@ -620,7 +620,7 @@
 
     <header>
         <div class="container header-content">
-            <div class="logo">Culture Nex.us</div>
+            <div class="logo">CultureNex.us</div>
             <nav class="nav-links">
                 <a href="#vision">Vision</a>
                 <a href="#principles">Principles</a>
@@ -638,8 +638,8 @@
         </div>
         <div class="container hero-content">
             <h1>Co-Evolving Intelligence</h1>
-            <p class="tagline">Is the friction between your intent and your tools holding you back? At Culture Nex.us, we're exploring a future where human and artificial intelligence collaborate seamlessly, unlocking unprecedented potential.</p>
-<!--             <div class="typewriter-effect">Thinking together. Evolving together.<span class="cursor"></span></div> -->
+            <p class="tagline">Is the friction between your intent and your tools holding you back? At CultureNex.us, we're exploring a future where human and artificial intelligence collaborate seamlessly, unlocking unprecedented potential.</p>
+            <p style="color: var(--accent-primary); font-weight: 500; margin-top: 1rem;">Thinking together. Evolving together.</p>
         </div>
     </section>
 
@@ -702,11 +702,53 @@
             <a href="#contact" class="cta-button">Connect With Us</a>
         </div>
     </section>
+    
+    <section class="grid-section" id="contact">
+        <div class="neural-pattern"></div>
+        <div class="container">
+            <h2 class="section-title">Connect With Us</h2>
+            <div class="main-content">
+                <p>Ready to explore the frontier of co-evolving intelligence? Reach out to us using the form below, and join our community of pioneers shaping the future of human-AI symbiosis.</p>
+                
+                <div class="contact-form-container" style="max-width: 600px; margin: 3rem auto; padding: 2rem; background: rgba(19, 19, 32, 0.6); border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                    <form name="contact" netlify data-netlify="true">
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary);">Name</label>
+                            <input type="text" name="name" style="width: 100%; padding: 0.75rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 5px; color: var(--text-primary); font-size: 1rem;" required />
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary);">Email</label>
+                            <input type="email" name="email" style="width: 100%; padding: 0.75rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 5px; color: var(--text-primary); font-size: 1rem;" required />
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary);">Subject</label>
+                            <input type="text" name="subject" style="width: 100%; padding: 0.75rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 5px; color: var(--text-primary); font-size: 1rem;" />
+                        </div>
+                        
+                        <div style="margin-bottom: 2rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary);">Message</label>
+                            <textarea name="message" rows="5" style="width: 100%; padding: 0.75rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 5px; color: var(--text-primary); font-size: 1rem; resize: vertical;" required></textarea>
+                        </div>
+                        
+                        <div>
+                            <button type="submit" style="padding: 0.75rem 2rem; background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary)); color: white; border: none; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                                Send Message
+                            </button>
+                        </div>
+                        
+                        <input type="hidden" name="form-name" value="contact" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <footer id="contact">
+    <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">Culture Nex.us</div>
+                <div class="footer-logo">CultureNex.us</div>
                 <div class="footer-links">
                     <a href="#vision">Vision</a>
                     <a href="#principles">Principles</a>
@@ -715,15 +757,16 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 Culture Nex.us. Building the future of human-AI symbiosis.</p>
+                <p>© 2025 CultureNex.us. Building the future of human-AI symbiosis.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;">Built with collaborative intelligence.</p>
             </div>
         </div>
     </footer>
 
-<!--     <div class="ai-thoughts">
+    <div class="ai-thoughts">
         <div class="ai-thoughts-title">AI Processing</div>
         <div class="ai-thoughts-text">I'm analyzing your intent and considering ways to enhance your experience...</div>
-    </div> -->
+    </div>
 
     <script>
         // Generate code-like background elements
@@ -767,33 +810,33 @@
             codeContainer.appendChild(line);
         }
 
-        // // AI thoughts bubble
-        // const aiThoughts = [
-        //     "Analyzing user intent patterns to anticipate needs...",
-        //     "Considering optimal cognitive extension strategies...",
-        //     "Evaluating seamless integration pathways...",
-        //     "Processing contextual variables for enhanced collaboration...",
-        //     "Mapping neural patterns for improved symbiosis...",
-        //     "Calculating friction reduction potentials...",
-        //     "Optimizing human-AI communication protocols..."
-        // ];
+        // AI thoughts bubble
+        const aiThoughts = [
+            "Analyzing user intent patterns to anticipate needs...",
+            "Considering optimal cognitive extension strategies...",
+            "Evaluating seamless integration pathways...",
+            "Processing contextual variables for enhanced collaboration...",
+            "Mapping neural patterns for improved symbiosis...",
+            "Calculating friction reduction potentials...",
+            "Optimizing human-AI communication protocols..."
+        ];
 
-        // const thoughtsBubble = document.querySelector('.ai-thoughts');
-        // const thoughtsText = document.querySelector('.ai-thoughts-text');
+        const thoughtsBubble = document.querySelector('.ai-thoughts');
+        const thoughtsText = document.querySelector('.ai-thoughts-text');
 
-        // function showRandomThought() {
-        //     thoughtsText.textContent = aiThoughts[Math.floor(Math.random() * aiThoughts.length)];
-        //     thoughtsBubble.classList.add('visible');
+        function showRandomThought() {
+            thoughtsText.textContent = aiThoughts[Math.floor(Math.random() * aiThoughts.length)];
+            thoughtsBubble.classList.add('visible');
             
-        //     setTimeout(() => {
-        //         thoughtsBubble.classList.remove('visible');
-        //     }, 4000);
+            setTimeout(() => {
+                thoughtsBubble.classList.remove('visible');
+            }, 4000);
             
-        //     setTimeout(showRandomThought, Math.random() * 10000 + 5000);
-        // }
+            setTimeout(showRandomThought, Math.random() * 10000 + 1000);
+        }
 
-        // // Start after a delay
-        // setTimeout(showRandomThought, 3000);
+        // Start after a delay
+        setTimeout(showRandomThought, 3000);
 
         // Header animation
         const header = document.querySelector('header');
