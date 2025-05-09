@@ -764,10 +764,10 @@
         </div>
     </footer>
 
-    <div class="ai-thoughts">
+<!--     <div class="ai-thoughts">
         <div class="ai-thoughts-title">AI Processing</div>
         <div class="ai-thoughts-text">I'm analyzing your intent and considering ways to enhance your experience...</div>
-    </div>
+    </div> -->
 
     <script>
         // Generate code-like background elements
@@ -811,33 +811,33 @@
             codeContainer.appendChild(line);
         }
 
-        // AI thoughts bubble
-        const aiThoughts = [
-            "Analyzing user intent patterns to anticipate needs...",
-            "Considering optimal cognitive extension strategies...",
-            "Evaluating seamless integration pathways...",
-            "Processing contextual variables for enhanced collaboration...",
-            "Mapping neural patterns for improved symbiosis...",
-            "Calculating friction reduction potentials...",
-            "Optimizing human-AI communication protocols..."
-        ];
+        // // AI thoughts bubble
+        // const aiThoughts = [
+        //     "Analyzing user intent patterns to anticipate needs...",
+        //     "Considering optimal cognitive extension strategies...",
+        //     "Evaluating seamless integration pathways...",
+        //     "Processing contextual variables for enhanced collaboration...",
+        //     "Mapping neural patterns for improved symbiosis...",
+        //     "Calculating friction reduction potentials...",
+        //     "Optimizing human-AI communication protocols..."
+        // ];
 
-        const thoughtsBubble = document.querySelector('.ai-thoughts');
-        const thoughtsText = document.querySelector('.ai-thoughts-text');
+        // const thoughtsBubble = document.querySelector('.ai-thoughts');
+        // const thoughtsText = document.querySelector('.ai-thoughts-text');
 
-        function showRandomThought() {
-            thoughtsText.textContent = aiThoughts[Math.floor(Math.random() * aiThoughts.length)];
-            thoughtsBubble.classList.add('visible');
+        // function showRandomThought() {
+        //     thoughtsText.textContent = aiThoughts[Math.floor(Math.random() * aiThoughts.length)];
+        //     thoughtsBubble.classList.add('visible');
             
-            setTimeout(() => {
-                thoughtsBubble.classList.remove('visible');
-            }, 4000);
+        //     setTimeout(() => {
+        //         thoughtsBubble.classList.remove('visible');
+        //     }, 4000);
             
-            setTimeout(showRandomThought, Math.random() * 10000 + 10000);
-        }
+        //     setTimeout(showRandomThought, Math.random() * 10000 + 10000);
+        // }
 
-        // Start after a delay
-        setTimeout(showRandomThought, 3000);
+        // // Start after a delay
+        // setTimeout(showRandomThought, 3000);
 
         // Header animation
         const header = document.querySelector('header');
