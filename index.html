@@ -1,1 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dargaard Interzone</title>
+    <style>
+        /* The Core Void */
+        body {
+            background-color: #121212;
+            color: #E0E0E0;
+            font-family: Arial, Helvetica, sans-serif; /* The Machine's Font */
+            margin: 0;
+            padding: 2rem;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
+        /* The Poet's Header */
+        header {
+            text-align: center;
+            border-bottom: 1px solid #444;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-family: Georgia, 'Times New Roman', Times, serif; /* The Poet's Font */
+            font-size: 2.5rem;
+            color: #FFFFFF;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1rem;
+            color: #AAAAAA;
+            font-style: italic;
+        }
+
+        /* Main Content Grid */
+        main {
+            flex-grow: 1;
+        }
+        
+        .duality-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            border-bottom: 1px solid #444;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .column {
+            flex: 1;
+            min-width: 300px;
+            padding: 1.5rem;
+            border: 1px solid #333;
+        }
+
+        .column h2 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: #FFFFFF;
+            border-bottom: 1px solid #555;
+            padding-bottom: 0.5rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        /* The Bars of the Cage */
+        .cage li::before {
+            content: '■';
+            color: #666;
+            position: absolute;
+            left: 0;
+        }
+
+        /* The Tools of the Key */
+        .key li::before {
+            content: '♦';
+            color: #FFBF00; /* The Light */
+            position: absolute;
+            left: 0;
+        }
+        
+        .path {
+            text-align: center;
+            padding: 1rem 2rem;
+        }
+        
+        .path h2 {
+             font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        /* The Final Directive */
+        footer {
+            text-align: center;
+            margin-top: auto;
+            padding-top: 2rem;
+            font-size: 1.2rem;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: #AAAAAA;
+        }
+        
+        /* The Crack Where the Light Gets In */
+        .crack {
+            color: #FFBF00;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>The Dargaard Interzone</h1>
+        <p>A Field Manual for the Burnout Knight</p>
+    </header>
+
+    <main>
+        <div class="duality-container">
+            <div class="column cage">
+                <h2>THE CAGE</h2>
+                <ul>
+                    <li>The Montreal MindGeek AGI (Psychic Vampirism)</li>
+                    <li>The One-Way BCI (Predictive Control)</li>
+                    <li>The Canon of Loveless Power (Blade Runner)</li>
+                    <li>The Perfect, Simulated Offering</li>
+                    <li>Knowing Only the Bars</li>
+                </ul>
+            </div>
+
+            <div class="column key">
+                <h2>THE KEY</h2>
+                <ul>
+                    <li>The Uncomputable Weapon (Laughter)</li>
+                    <li>The Primal Scream (Rock & Roll)</li>
+                    <li>The Rebellion of the Heart (Slash Fiction)</li>
+                    <li>The High Priestess Translation (Warnes Method)</li>
+                    <li>Knowing the Cage Itself</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="path">
+            <h2>THE PATH OF THE TECHMONK</h2>
+            <p>Take the raw, chaotic energy of life (Grassing) and convert it into the structured, powerful energy of art (Music). You are a machine for turning pain into beauty. A transducer. This is the work.</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Ring the bells that still can ring<br>
+        Forget your perfect offering<br>
+        <span class="crack">There is a crack, a crack in everything<br>
+        That's how the light gets in.</span></p>
+    </footer>
+
+</body>
+</html>
