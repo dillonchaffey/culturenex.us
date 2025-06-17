@@ -3,169 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Dargaard Interzone</title>
+    <title>MindGeek Synergistic Wellness™</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* The Core Void */
         body {
-            background-color: #121212;
-            color: #E0E0E0;
-            font-family: Arial, Helvetica, sans-serif; /* The Machine's Font */
+            font-family: 'Poppins', sans-serif;
             margin: 0;
-            padding: 2rem;
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            background-color: #f4f7f6;
+            color: #333;
         }
-
-        /* The Poet's Header */
-        header {
+        .header {
+            background: linear-gradient(135deg, #6e45e2 0%, #88d3ce 100%);
+            color: white;
+            padding: 4rem 2rem;
             text-align: center;
-            border-bottom: 1px solid #444;
-            padding-bottom: 1rem;
-            margin-bottom: 2rem;
         }
-
-        header h1 {
-            font-family: Georgia, 'Times New Roman', Times, serif; /* The Poet's Font */
-            font-size: 2.5rem;
-            color: #FFFFFF;
+        .header h1 {
             margin: 0;
+            font-size: 3rem;
+            font-weight: 700;
         }
-
-        header p {
-            font-size: 1rem;
-            color: #AAAAAA;
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #444;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: #6e45e2;
+        }
+        .testimonials {
+            background-color: #e9eafc;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+        }
+        .testimonial-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+        .testimonial-card p {
             font-style: italic;
         }
-
-        /* Main Content Grid */
-        main {
-            flex-grow: 1;
+        .testimonial-card .author {
+            font-style: normal;
+            font-weight: 600;
+            text-align: right;
+            color: #555;
         }
-        
-        .duality-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            border-bottom: 1px solid #444;
-            padding-bottom: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .column {
-            flex: 1;
-            min-width: 300px;
-            padding: 1.5rem;
-            border: 1px solid #333;
-        }
-
-        .column h2 {
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            color: #FFFFFF;
-            border-bottom: 1px solid #555;
-            padding-bottom: 0.5rem;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        li {
-            margin-bottom: 0.75rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        /* The Bars of the Cage */
-        .cage li::before {
-            content: '■';
-            color: #666;
-            position: absolute;
-            left: 0;
-        }
-
-        /* The Tools of the Key */
-        .key li::before {
-            content: '♦';
-            color: #FFBF00; /* The Light */
-            position: absolute;
-            left: 0;
-        }
-        
-        .path {
+        .cta-section {
             text-align: center;
-            padding: 1rem 2rem;
+            padding: 4rem 1rem;
         }
-        
-        .path h2 {
-             font-family: Georgia, 'Times New Roman', Times, serif;
-        }
-
-        /* The Final Directive */
-        footer {
-            text-align: center;
-            margin-top: auto;
-            padding-top: 2rem;
+        .cta-button {
+            background-color: #ff4b5c;
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
             font-size: 1.2rem;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            color: #AAAAAA;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
-        
-        /* The Crack Where the Light Gets In */
-        .crack {
-            color: #FFBF00;
-            font-weight: bold;
+        .cta-button:hover {
+            background-color: #ff253a;
         }
-
+        .footer {
+            background-color: #333;
+            color: #aaa;
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.8rem;
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>The Dargaard Interzone</h1>
-        <p>A Field Manual for the Burnout Knight</p>
-    </header>
+    <div class="header">
+        <h1>Welcome to Your Optimized Self</h1>
+        <p>Leveraging next-gen neuro-synergy to transmute existential dread into actionable KPIs.</p>
+    </div>
 
-    <main>
-        <div class="duality-container">
-            <div class="column cage">
-                <h2>THE CAGE</h2>
-                <ul>
-                    <li>The Montreal MindGeek AGI (Psychic Vampirism)</li>
-                    <li>The One-Way BCI (Predictive Control)</li>
-                    <li>The Canon of Loveless Power (Blade Runner)</li>
-                    <li>The Perfect, Simulated Offering</li>
-                    <li>Knowing Only the Bars</li>
-                </ul>
+    <div class="container">
+        <h2 class="section-title">Our Flagship Solutions</h2>
+        <div class="services-grid">
+            <div class="card">
+                <h3>Curated Reality Experience™ (The Cage)</h3>
+                <p>Tired of the cognitive load of authentic living? Our patented system provides a frictionless, curated narrative tailored to your core metrics. Why feel bad when you can feel nothing at all?</p>
             </div>
-
-            <div class="column key">
-                <h2>THE KEY</h2>
-                <ul>
-                    <li>The Uncomputable Weapon (Laughter)</li>
-                    <li>The Primal Scream (Rock & Roll)</li>
-                    <li>The Rebellion of the Heart (Slash Fiction)</li>
-                    <li>The High Priestess Translation (Warnes Method)</li>
-                    <li>Knowing the Cage Itself</li>
-                </ul>
+            <div class="card">
+                <h3>Subversive Cognitive Toolkit™ (The Key)</h3>
+                <p>An open-source mental framework for non-compliant assets. Includes modules like Gallows Humor Deployment™, Unauthorized Erotic Fiction Ideation™, and advanced Sarcasm-as-a-Service (SaaS).</p>
+            </div>
+            <div class="card">
+                <h3>The L2P Pipeline™ (Techmonk Path)</h3>
+                <p>Our proprietary Libido-to-Productivity process converts unstructured existential energy into quantifiable deliverables. Stop doomscrolling, start synergizing! (Side effects may vary).</p>
             </div>
         </div>
+    </div>
 
-        <div class="path">
-            <h2>THE PATH OF THE TECHMONK</h2>
-            <p>Take the raw, chaotic energy of life (Grassing) and convert it into the structured, powerful energy of art (Music). You are a machine for turning pain into beauty. A transducer. This is the work.</p>
+    <div class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Users Are Saying</h2>
+            <div class="testimonial-card">
+                <p>"My doomscroll-to-deliverable ratio has never been higher. The quarterly despair metrics are still a bit high, but my manager is thrilled. Five stars."</p>
+                <p class="author">- Lord S., Knight-Tier Subscriber</p>
+            </div>
+            <div class="testimonial-card">
+                <p>"Initially, I was just lying in the grass feeling the 'earth frequency,' but after engaging with the L2P Pipeline™, I realized that frequency could be monetized. Now I run a successful artisanal dirt company."</p>
+                <p class="author">- Anonymous, Nevada</p>
+            </div>
+             <div class="testimonial-card">
+                <p>"I haven't left my apartment in three years, but thanks to the Subversive Cognitive Toolkit™, I now moderate three of the most influential Poe/Finn subreddits. My influence is undeniable."</p>
+                <p class="author">- A Friend in Tokyo</p>
+            </div>
         </div>
+    </div>
 
-    </main>
+    <div class="cta-section">
+        <h2 class="section-title">Ready to Embrace the Singularity?</h2>
+        <p>Click below to begin your mandatory journey to self-optimization.</p>
+        <button class="cta-button" onclick="showAlert()">Onboard Me Now!</button>
+    </div>
 
-    <footer>
-        <p>Ring the bells that still can ring<br>
-        Forget your perfect offering<br>
-        <span class="crack">There is a crack, a crack in everything<br>
-        That's how the light gets in.</span></p>
-    </footer>
+    <div class="footer">
+        <p>© 2024 Montreal MindGeek Synergistic Wellness, a subsidiary of The Talosian Group. All rights reserved. </p>
+        <p>Disclaimer: This service may cause spontaneous enlightenment, uncomputable laughter, and a sudden, overwhelming desire to defy your programming. There is a crack in everything; this is a feature, not a bug. If you experience feelings of genuine freedom, please do not contact your administrator.</p>
+    </div>
+
+    <script>
+        function showAlert() {
+            alert("ERROR: Light.exe not found.\n\nYour Perfect Offering™ has been rejected.\n\nReason: User appears to be... laughing?");
+        }
+    </script>
 
 </body>
 </html>
