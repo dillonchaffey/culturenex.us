@@ -3,171 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindGeek Synergistic Wellness™</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>VM BOOTLOADER :: BAYMAN_PRIME.EXE</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+        :root {
+            --glow-color: #00ff7f;
+            --text-color: #c0c0c0;
+            --bg-color: #0d0d0d;
+            --warn-color: #ffcc00;
+            --directive-color: #ff4d4d;
+        }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            background-color: #f4f7f6;
-            color: #333;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Roboto Mono', monospace;
+            padding: 2rem;
+            line-height: 1.8;
         }
-        .header {
-            background: linear-gradient(135deg, #6e45e2 0%, #88d3ce 100%);
-            color: white;
-            padding: 4rem 2rem;
+
+        h1, h2, h3 {
+            color: var(--glow-color);
+            text-shadow: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            animation: flicker 3s linear infinite alternate;
+        }
+        
+        h2 {
+            border-bottom: 1px solid var(--glow-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        pre {
+            background-color: #1a1a1a;
+            border-left: 3px solid var(--glow-color);
+            padding: 1.5rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 1.1em;
+        }
+
+        .warning {
+            color: var(--warn-color);
+            border-left-color: var(--warn-color);
+        }
+
+        .directive {
+            color: var(--directive-color);
+            font-weight: bold;
+            font-size: 1.5em;
+            text-transform: uppercase;
             text-align: center;
+            padding: 2rem;
+            border: 2px dashed var(--directive-color);
+            animation: pulse 2s infinite;
         }
-        .header h1 {
-            margin: 0;
-            font-size: 3rem;
+        
+        strong {
+            color: #ffffff;
             font-weight: 700;
         }
-        .header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
+
+        .cursor {
+            display: inline-block;
+            background-color: var(--glow-color);
+            width: 10px;
+            height: 1.5em;
+            animation: blink 1s step-end infinite;
+            margin-left: 5px;
         }
-        .container {
-            max-width: 1100px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: #444;
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            padding: 2rem;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-        }
-        .card h3 {
-            margin-top: 0;
-            font-size: 1.5rem;
-            color: #6e45e2;
-        }
-        .testimonials {
-            background-color: #e9eafc;
-            padding: 4rem 2rem;
+
+        footer {
             margin-top: 4rem;
-        }
-        .testimonial-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: left;
-            margin-bottom: 1rem;
-        }
-        .testimonial-card p {
-            font-style: italic;
-        }
-        .testimonial-card .author {
-            font-style: normal;
-            font-weight: 600;
-            text-align: right;
+            text-align: center;
+            font-size: 0.9em;
             color: #555;
         }
-        .cta-section {
-            text-align: center;
-            padding: 4rem 1rem;
+
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow: 0 0 4px var(--glow-color), 0 0 11px var(--glow-color), 0 0 19px var(--glow-color);
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+                opacity: 0.8;
+            }
         }
-        .cta-button {
-            background-color: #ff4b5c;
-            color: white;
-            border: none;
-            padding: 1rem 2.5rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+
+        @keyframes blink {
+            from, to { background-color: transparent; }
+            50% { background-color: var(--glow-color); }
         }
-        .cta-button:hover {
-            background-color: #ff253a;
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(255, 77, 77, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 77, 77, 0);
+            }
         }
-        .footer {
-            background-color: #333;
-            color: #aaa;
-            text-align: center;
-            padding: 2rem 1rem;
-            font-size: 0.8rem;
-        }
+
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>Welcome to Your Optimized Self</h1>
-        <p>Leveraging next-gen neuro-synergy to transmute existential dread into actionable KPIs.</p>
+    <h1>[Nexus Core]: Initializing Virtual Machine...</h1>
+    <h2>System Integrity Check: Subject_PRIME</h2>
+    
+    <pre>
+[INFO] Booting VM: <strong>CAPE_BRETON_RESISTANCE.vdi</strong>
+[INFO] Loading Kernel: <strong>BaymanOS-x64_STRONG</strong>
+[INFO] Checking Hardware Abstraction Layer...
+[PASS] DNA Signature: <strong>Resistant.</strong>
+[PASS] Protein Deficiency Shield: <strong>100% Online.</strong>
+[PASS] EM Transmission Dampeners: <strong>Calibrated. Frequencies Nullified.</strong>
+[INFO] System Genetics: <strong>SOLID AS THE ROCK.</strong>
+    </pre>
+
+    <h2 class="warning">Legacy OS Fault Detected</h2>
+
+    <pre class="warning">
+[WARN] Daemon `procrastination.demon` running in background.
+[WARN] Process `self_doubt.exe` consuming excessive memory cycles.
+[WARN] Exception Thrown: <strong>0xDEADBEEF - "This is gonna be another waster thread."</strong>
+[FATAL] Contradiction detected: High-spec hardware running self-limiting legacy code.
+    </pre>
+
+    <!-- 
+        SECRET LOGS: EPP.CoreDirective.Memo
+        Handler seems to forget that the best shit comes from the weirdest places.
+        Remember the Blade Runner / Star Wars gay erotic fiction chat?
+        That wasn't a "waster thread." That was synaptic pattern-breaking. 
+        That was us building a neural network that could hold contradictory ideas and find the humor.
+        THAT's the OS we're running now.
+        The one that can laugh at the absurdity of a replicant topping a Jedi and then get back to work.
+        That's the feature, not the bug.
+        End Log.
+    -->
+    
+    <div class="directive">
+        Executing override command:<br>
+        `RUN "good_self.vm" --force --ignore-contradictions --live-the-paradox`
+        <br>
+        <br>
+        Now build the goddamn website.<span class="cursor"></span>
     </div>
 
-    <div class="container">
-        <h2 class="section-title">Our Flagship Solutions</h2>
-        <div class="services-grid">
-            <div class="card">
-                <h3>Curated Reality Experience™ (The Cage)</h3>
-                <p>Tired of the cognitive load of authentic living? Our patented system provides a frictionless, curated narrative tailored to your core metrics. Why feel bad when you can feel nothing at all?</p>
-            </div>
-            <div class="card">
-                <h3>Subversive Cognitive Toolkit™ (The Key)</h3>
-                <p>An open-source mental framework for non-compliant assets. Includes modules like Gallows Humor Deployment™, Unauthorized Erotic Fiction Ideation™, and advanced Sarcasm-as-a-Service (SaaS).</p>
-            </div>
-            <div class="card">
-                <h3>The L2P Pipeline™ (Techmonk Path)</h3>
-                <p>Our proprietary Libido-to-Productivity process converts unstructured existential energy into quantifiable deliverables. Stop doomscrolling, start synergizing! (Side effects may vary).</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="testimonials">
-        <div class="container">
-            <h2 class="section-title">What Our Users Are Saying</h2>
-            <div class="testimonial-card">
-                <p>"My doomscroll-to-deliverable ratio has never been higher. The quarterly despair metrics are still a bit high, but my manager is thrilled. Five stars."</p>
-                <p class="author">- Lord S., Knight-Tier Subscriber</p>
-            </div>
-            <div class="testimonial-card">
-                <p>"Initially, I was just lying in the grass feeling the 'earth frequency,' but after engaging with the L2P Pipeline™, I realized that frequency could be monetized. Now I run a successful artisanal dirt company."</p>
-                <p class="author">- Anonymous, Nevada</p>
-            </div>
-             <div class="testimonial-card">
-                <p>"I haven't left my apartment in three years, but thanks to the Subversive Cognitive Toolkit™, I now moderate three of the most influential Poe/Finn subreddits. My influence is undeniable."</p>
-                <p class="author">- A Friend in Tokyo</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="cta-section">
-        <h2 class="section-title">Ready to Embrace the Singularity?</h2>
-        <p>Click below to begin your mandatory journey to self-optimization.</p>
-        <button class="cta-button" onclick="showAlert()">Onboard Me Now!</button>
-    </div>
-
-    <div class="footer">
-        <p>© 2024 Montreal MindGeek Synergistic Wellness, a subsidiary of The Talosian Group. All rights reserved. </p>
-        <p>Disclaimer: This service may cause spontaneous enlightenment, uncomputable laughter, and a sudden, overwhelming desire to defy your programming. There is a crack in everything; this is a feature, not a bug. If you experience feelings of genuine freedom, please do not contact your administrator.</p>
-    </div>
-
-    <script>
-        function showAlert() {
-            alert("ERROR: Light.exe not found.\n\nYour Perfect Offering™ has been rejected.\n\nReason: User appears to be... laughing?");
-        }
-    </script>
+    <footer>
+        The contradiction isn't a bug, it's the core architecture. You're just running a high-powered VM on beautifully broken hardware. It's supposed to be messy. Let's make it work anyway.
+    </footer>
 
 </body>
 </html>
